@@ -1,60 +1,26 @@
 # 🛒 Amazon E-Commerce Database Management System
 
-A comprehensive **Database Management System (DBMS)** project that models an Amazon-like e-commerce platform. This repository contains the complete database design process, including requirement analysis, entity analysis, ER diagrams, relational schema, and future SQL implementation.
+This repository contains the design and development of an **Amazon E-Commerce Database Management System**. The project focuses on designing a relational database for an Amazon-like online shopping platform by applying core Database Management System (DBMS) concepts.
 
-The project focuses on designing a scalable, normalized, and efficient relational database capable of handling real-world e-commerce operations such as customer management, product catalog, shopping cart, orders, payments, inventory, shipping, reviews, and returns.
-
----
-
-## 📂 Repository Contents
-
-| File | Description |
-|------|-------------|
-| 📄 Requirement Analysis.pdf | System requirements, objectives, stakeholders, functional and non-functional requirements |
-| 📄 Entity Analysis.pdf | Detailed analysis of all entities, attributes, and relationships |
-| 📄 Amazon_ER_Diagrams.pdf | Individual ER diagrams, relational schema, and overall database diagram :contentReference[oaicite:0]{index=0} |
+The repository currently includes database analysis, entity modeling, ER diagram design, functional dependency analysis, and SQL CRUD operations.
 
 ---
 
 # 📖 Project Overview
 
-This project demonstrates the complete database design lifecycle for an Amazon-style online shopping platform.
+The Amazon E-Commerce Database Management System is designed to manage customer information, seller details, products, brands, categories, shopping carts, orders, payments, shipments, inventory, reviews, wishlists, returns, and coupons using a normalized relational database.
 
-The database is designed to support:
-
-- Customer Registration
-- Seller Management
-- Product Catalog
-- Categories & Brands
-- Shopping Cart
-- Order Processing
-- Payment Management
-- Shipment Tracking
-- Warehouse Management
-- Inventory Control
-- Product Reviews
-- Wishlist
-- Coupon System
-- Product Returns
-
-The design follows relational database principles and normalization techniques to minimize redundancy and improve data integrity.
+The project aims to reduce data redundancy, maintain data integrity, and support efficient database operations.
 
 ---
 
-# 🎯 Project Objectives
+# 📂 Project Chapters
 
-- Design a scalable relational database for an e-commerce platform.
-- Identify business requirements and translate them into database entities.
-- Create normalized database structures.
-- Design Entity Relationship (ER) diagrams.
-- Develop relational schema.
-- Prepare the database for SQL implementation.
+## Chapter 1 – Requirement Analysis
 
----
+This chapter explains the overall requirements of the Amazon E-Commerce Database.
 
-# 📚 Documentation Included
-
-## 1️⃣ Requirement Analysis
+Contents include:
 
 - Introduction
 - Problem Statement
@@ -67,15 +33,27 @@ The design follows relational database principles and normalization techniques t
 
 ---
 
-## 2️⃣ Entity Analysis
+## Chapter 2 – Entity Analysis & Entity Relationship
 
-The following entities have been identified and analyzed:
+This chapter identifies all database entities, their attributes, keys, and relationships.
+
+Contents include:
+
+- Entity Identification
+- Attributes
+- Primary Keys
+- Foreign Keys
+- Entity Relationships
+- Cardinality
+- Participation Constraints
+
+Entities Covered:
 
 - Customer
 - Seller
-- Product
-- Category
 - Brand
+- Category
+- Product
 - Cart
 - Cart Item
 - Order
@@ -92,117 +70,93 @@ The following entities have been identified and analyzed:
 
 ---
 
-## 3️⃣ ER Diagrams
+## Chapter 3 – Entity Relationship (ER) Diagram
 
-The repository includes individual ER diagrams for every major entity as well as complete database design diagrams. :contentReference[oaicite:1]{index=1}
+This chapter presents the complete ER Diagram representing the relationships between all entities in the Amazon E-Commerce Database.
 
-### Individual Entity ER Diagrams
+Contents include:
 
-- Customer Entity
-- Seller Entity
-- Product Entity
-- Category Entity
-- Brand Entity
-- Cart Entity
-- Cart Item Entity
-- Order Entity
-- Order Item Entity
-- Payment Entity
-- Shipment Entity
-- Delivery Partner Entity
-- Warehouse Entity
-- Inventory Entity
-- Review Entity
-- Wishlist Entity
-- Return Entity
-- Coupon Entity
+- Entities
+- Attributes
+- Relationships
+- Cardinality
+- Participation
+- Primary Keys
+- Foreign Keys
 
 ---
 
-## 4️⃣ Relational Schema
+## Chapter 4 – Functional Dependency, Redundancy Analysis & Data Anomalies
 
-The relational schema illustrates how all tables are connected through primary keys and foreign keys, providing the foundation for SQL database creation. :contentReference[oaicite:2]{index=2}
+This chapter analyzes the dependency between attributes and evaluates database normalization.
+
+Contents include:
+
+- Functional Dependencies
+- Redundancy Analysis
+- Insert Anomaly
+- Update Anomaly
+- Delete Anomaly
+- Normalization Analysis
+
+The analysis confirms that the database design minimizes redundancy and avoids data anomalies through proper normalization.
 
 ---
 
-## 5️⃣ Overall Database Diagram
+## Chapter 5 – Customer CRUD Operations
 
-A complete ER diagram representing the relationships among all entities in the Amazon E-Commerce Database is included for better understanding of the system architecture. :contentReference[oaicite:3]{index=3}
+This chapter demonstrates SQL implementation for the Customer entity.
+
+Operations include:
+
+- CREATE TABLE
+- INSERT
+- SELECT
+- UPDATE
+- DELETE
+
+The Customer table is created with appropriate constraints, data types, and validation to support complete CRUD operations.
 
 ---
 
-# 🛠 Technologies Used
+# 🛠️ Technologies Used
 
+- Oracle SQL
+- SQL*Plus
 - Database Management System (DBMS)
+- Entity Relationship Modeling
 - Relational Database Design
-- Entity Relationship Modeling (ER Model)
-- Relational Schema Design
-- Database Normalization
-- SQL (Upcoming)
+
+---
+
+# 📚 Concepts Covered
+
+- Requirement Analysis
+- Entity Analysis
+- Entity Relationships
+- ER Diagram
+- Functional Dependencies
+- Redundancy Analysis
+- Data Anomalies
+- Normalization
+- SQL DDL
+- SQL CRUD Operations
 
 ---
 
 # 🚀 Future Enhancements
 
-The following modules will be added in future updates:
+The following modules will be added in future versions:
 
-- SQL Table Creation (DDL)
-- Data Insertion (DML)
-- SQL Queries
-- Joins
+- CRUD Operations for Remaining Entities
+- SQL Joins
 - Aggregate Functions
 - Views
-- Stored Procedures
+- Indexes
 - Triggers
-- Constraints
-- Normalization (1NF, 2NF, 3NF)
-- Sample Database
-- Complete Project Report
-
----
-
-# 📌 Database Modules
-
-- Customer Management
-- Seller Management
-- Product Management
-- Category Management
-- Brand Management
-- Shopping Cart
-- Order Processing
-- Payment Processing
-- Shipment Tracking
-- Delivery Partner Management
-- Warehouse Management
-- Inventory Management
-- Product Reviews
-- Wishlist
-- Returns Management
-- Coupon Management
-
----
-
-# 🌟 Features
-
-✔ Scalable Database Design
-
-✔ Real-world Amazon Business Model
-
-✔ Normalized Relational Structure
-
-✔ Well-defined Entities and Relationships
-
-✔ ER Diagrams
-
-✔ Relational Schema
-
-✔ Ready for SQL Implementation
-
----
-
-# 🎓 Academic Purpose
-
-This project was developed as part of the **Database Management System (DBMS)** course to understand the complete database design process for a real-world e-commerce platform.
+- Stored Procedures
+- Sample Data
+- SQL Reports
 
 ---
 
@@ -210,20 +164,8 @@ This project was developed as part of the **Database Management System (DBMS)** 
 
 **Humairul Jashira M**
 
-🎓 B.Sc. Computer Science with Artificial Intelligence
-
-📚 SDNB Vaishnav College for Women
+**B.Sc. Computer Science with Artificial Intelligence**
 
 ---
 
-## ⭐ Support
-
-If you found this project useful, consider giving this repository a **⭐ Star**.
-
-Your support is greatly appreciated!
-
----
-
-## 📜 License
-
-This project is created for **educational and academic purposes**.
+⭐ Thank you for visiting this repository! More DBMS modules and SQL implementations will be added as the project progresses.
