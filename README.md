@@ -1,339 +1,185 @@
-# DBMS Weekly Task – Product and Category Database Management System
+# Amazon E-Commerce Database Management System
 
 ## Project Overview
 
-This project demonstrates the design and implementation of Product and Category entities using Oracle SQL.
+The Amazon E-Commerce Database Management System is a relational database project developed using Oracle SQL and SQL*Plus.
 
-The project includes table creation, primary key and foreign key relationships, data insertion, product updating, product deletion, and category-wise product reporting.
+This project focuses on managing product, category, seller, warehouse, and inventory information in a structured database. It establishes relationships between sellers, products, stock, and warehouses and provides inventory status reports.
 
-The implementation was performed using Oracle Database 21c Express Edition and SQL*Plus.
+## DBMS Task
 
-## Objectives
+1. Create Seller and Inventory tables.
+2. Establish relationships between sellers, products, and stock.
+3. Maintain seller product information.
+4. Track available and unavailable products.
+5. Generate inventory status reports.
 
-* Design the Category and Product tables.
-* Define primary key and foreign key relationships.
-* Store product details such as product name, category, price, and stock.
-* Insert product and category records.
-* Update product information.
-* Delete product records.
-* Generate category-wise product reports.
+## Technologies Used
 
-## Database Environment
+- Oracle Database
+- SQL
+- SQL*Plus
 
-* Database: Oracle Database 21c Express Edition
-* Tool: SQL*Plus
-* Language: SQL
+## Database Tables
 
-## 1. Category Table
+### Category
 
-The Category table stores information about different product categories.
+Stores product category information.
 
-### Table Structure
+Attributes:
+- Category_ID - Primary Key
+- Category_Name - Unique
+- Description
 
-| Column        | Data Type     | Constraint  |
-| ------------- | ------------- | ----------- |
-| Category_ID   | NUMBER        | PRIMARY KEY |
-| Category_Name | VARCHAR2(50)  | UNIQUE      |
-| Description   | VARCHAR2(100) | -           |
+### Product
 
-### SQL Code
+Stores product details and category and seller relationships.
 
-```sql
-CREATE TABLE Category (
-    Category_ID NUMBER PRIMARY KEY,
-    Category_Name VARCHAR2(50) UNIQUE,
-    Description VARCHAR2(100)
-);
-```
+Attributes:
+- Product_ID - Primary Key
+- Product_Name
+- Category_ID - Foreign Key
+- Price
+- Stock
+- Seller_ID - Foreign Key
 
-## 2. Product Table
+### Seller
 
-The Product table stores product details including product name, category, price, and available stock.
+Stores seller and business information.
 
-### Table Structure
+Attributes:
+- Seller_ID - Primary Key
+- Seller_Name
+- Business_Name
+- Email
+- Phone_Number
+- GST_Number
+- Address
+- Rating
 
-| Column       | Data Type     | Constraint  |
-| ------------ | ------------- | ----------- |
-| Product_ID   | NUMBER        | PRIMARY KEY |
-| Product_Name | VARCHAR2(100) | NOT NULL    |
-| Category_ID  | NUMBER        | FOREIGN KEY |
-| Price        | NUMBER(10,2)  | NOT NULL    |
-| Stock        | NUMBER        | NOT NULL    |
+### Warehouse
 
-### SQL Code
+Stores warehouse information.
 
-```sql
-CREATE TABLE Product (
-    Product_ID NUMBER PRIMARY KEY,
-    Product_Name VARCHAR2(100) NOT NULL,
-    Category_ID NUMBER,
-    Price NUMBER(10,2) NOT NULL,
-    Stock NUMBER NOT NULL,
-    CONSTRAINT fk_product_category
-    FOREIGN KEY (Category_ID)
-    REFERENCES Category(Category_ID)
-);
-```
+Attributes:
+- Warehouse_ID - Primary Key
+- Warehouse_Name
+- Location
+- Capacity
 
-## 3. Primary Key and Foreign Key Relationship
+### Inventory
 
-`Category_ID` is the Primary Key in the Category table.
+Stores product stock information for warehouses.
 
-`Category_ID` is used as a Foreign Key in the Product table and references `Category(Category_ID)`.
+Attributes:
+- Inventory_ID - Primary Key
+- Product_ID - Foreign Key
+- Warehouse_ID - Foreign Key
+- Available_Stock
+- Last_Updated
 
-This establishes a relationship between the Category and Product tables.
+## Table Relationships
 
-The relationship is:
+- One Category can have many Products.
+- One Seller can sell many Products.
+- One Product can have inventory records.
+- One Warehouse can contain many inventory records.
 
-```text
-Category 1 -------- N Product
-```
+Relationship flow:
 
-One category can contain multiple products.
+Category → Product ← Seller
 
-## 4. Category Data
+Product → Inventory ← Warehouse
 
-The following 10 category records were inserted:
+## Operations Performed
 
-| Category_ID | Category_Name   | Description                       |
-| ----------: | --------------- | --------------------------------- |
-|           1 | Electronics     | Electronic products               |
-|           2 | Clothing        | Clothing and fashion products     |
-|           3 | Books           | Books and educational materials   |
-|           4 | Home Appliances | Home and kitchen appliances       |
-|           5 | Beauty          | Beauty and personal care products |
-|           6 | Sports          | Sports and fitness products       |
-|           7 | Toys            | Toys and games                    |
-|           8 | Grocery         | Food and grocery products         |
-|           9 | Footwear        | Shoes and footwear products       |
-|          10 | Furniture       | Home and office furniture         |
+### Table Creation
 
-### SQL Code
+- Created Category table
+- Created Product table
+- Created Seller table
+- Created Warehouse table
+- Created Inventory table
 
-```sql
-INSERT INTO Category
-VALUES (1, 'Electronics', 'Electronic products');
+### Data Insertion
 
-INSERT INTO Category
-VALUES (2, 'Clothing', 'Clothing and fashion products');
+- Inserted category records
+- Inserted product records
+- Inserted seller records
+- Inserted warehouse records
+- Inserted inventory records
 
-INSERT INTO Category
-VALUES (3, 'Books', 'Books and educational materials');
+### Seller Product Information
 
-INSERT INTO Category
-VALUES (4, 'Home Appliances', 'Home and kitchen appliances');
+A JOIN query was used to display:
 
-INSERT INTO Category
-VALUES (5, 'Beauty', 'Beauty and personal care products');
+- Seller ID
+- Seller Name
+- Product ID
+- Product Name
+- Available Stock
 
-INSERT INTO Category
-VALUES (6, 'Sports', 'Sports and fitness products');
+### Inventory Status
 
-INSERT INTO Category
-VALUES (7, 'Toys', 'Toys and games');
+Available products and unavailable products were identified based on stock quantity.
 
-INSERT INTO Category
-VALUES (8, 'Grocery', 'Food and grocery products');
+- Available Product: Available_Stock > 0
+- Unavailable Product: Available_Stock = 0
 
-INSERT INTO Category
-VALUES (9, 'Footwear', 'Shoes and footwear products');
+## Inventory Reports
 
-INSERT INTO Category
-VALUES (10, 'Furniture', 'Home and office furniture');
-```
+The following reports were generated:
 
-## 5. Product Data
+### 1. Complete Inventory Report
 
-The following 10 product records were inserted:
+Displays product, seller, stock, warehouse, and last updated information.
 
-| Product_ID | Product_Name            | Category_ID | Price | Stock |
-| ---------: | ----------------------- | ----------: | ----: | ----: |
-|        101 | Laptop                  |           1 | 55000 |    10 |
-|        102 | Smartphone              |           1 | 25000 |    20 |
-|        103 | Headphones              |           1 |  1999 |    30 |
-|        104 | Smart Watch             |           1 |  3499 |    15 |
-|        105 | T-Shirt                 |           2 |   799 |    50 |
-|        106 | Jeans                   |           2 |  1499 |    40 |
-|        107 | Python Programming Book |           3 |   599 |    25 |
-|        108 | Data Science Book       |           3 |   699 |    20 |
-|        109 | Mixer Grinder           |           4 |  3500 |    12 |
-|        110 | Electric Kettle         |           4 |  1800 |    18 |
+### 2. Available and Unavailable Product Count
 
-### SQL Code
+Displays the number of available and unavailable products.
 
-```sql
-INSERT INTO Product
-VALUES (101, 'Laptop', 1, 55000, 10);
+### 3. Total Stock by Seller
 
-INSERT INTO Product
-VALUES (102, 'Smartphone', 1, 25000, 20);
+Displays the total available stock for each seller.
 
-INSERT INTO Product
-VALUES (103, 'Headphones', 1, 1999, 30);
+### 4. Products with Zero Stock
 
-INSERT INTO Product
-VALUES (104, 'Smart Watch', 1, 3499, 15);
+Displays products whose available stock is zero.
 
-INSERT INTO Product
-VALUES (105, 'T-Shirt', 2, 799, 50);
+## SQL Concepts Used
 
-INSERT INTO Product
-VALUES (106, 'Jeans', 2, 1499, 40);
+- CREATE TABLE
+- INSERT
+- SELECT
+- ALTER TABLE
+- UPDATE
+- PRIMARY KEY
+- FOREIGN KEY
+- UNIQUE Constraint
+- JOIN
+- WHERE
+- GROUP BY
+- COUNT()
+- SUM()
+- UNION ALL
+- CASE
 
-INSERT INTO Product
-VALUES (107, 'Python Programming Book', 3, 599, 25);
+## Purpose of the Project
 
-INSERT INTO Product
-VALUES (108, 'Data Science Book', 3, 699, 20);
+The project demonstrates how a relational database can be used to manage seller, product, warehouse, and inventory information efficiently. It also demonstrates database relationships, SQL operations, and inventory reporting using Oracle SQL*Plus.
 
-INSERT INTO Product
-VALUES (109, 'Mixer Grinder', 4, 3500, 12);
+## Conclusion
 
-INSERT INTO Product
-VALUES (110, 'Electric Kettle', 4, 1800, 18);
-```
+The Amazon E-Commerce Database Management System provides a structured way to manage seller, product, category, warehouse, and inventory data. The project establishes relationships between related tables and generates useful inventory status reports for better data management and retrieval.
 
-## 6. Display Records
+## Tools
 
-### Display Category Records
+Oracle SQL*Plus
 
-```sql
-SELECT * FROM Category;
-```
+## Project Type
 
-The query displayed all 10 category records successfully.
+DBMS Academic Project
 
-### Display Product Records
-
-```sql
-SELECT * FROM Product;
-```
-
-The query displayed all 10 product records successfully.
-
-## 7. Product Update Operations
-
-### Update Product Price
-
-The price of the Laptop was updated from 55000 to 58000.
-
-```sql
-UPDATE Product
-SET Price = 58000
-WHERE Product_ID = 101;
-```
-
-### Update Product Price and Stock
-
-The price and stock of the Headphones were updated.
-
-```sql
-UPDATE Product
-SET Price = 899,
-    Stock = 60
-WHERE Product_ID = 103;
-```
-
-Both update operations were successfully executed.
-
-## 8. Product Delete Operations
-
-### Delete Data Science Book
-
-```sql
-DELETE FROM Product
-WHERE Product_ID = 108;
-```
-
-One row was deleted successfully.
-
-### Delete Products with Stock Less Than 10
-
-```sql
-DELETE FROM Product
-WHERE Stock < 10;
-```
-
-The result was:
-
-```text
-0 rows deleted.
-```
-
-This means no product currently had stock less than 10.
-
-### Delete Jeans
-
-```sql
-DELETE FROM Product
-WHERE Product_ID = 106;
-```
-
-One row was deleted successfully.
-
-## 9. Category-wise Product Report
-
-The following query generates a category-wise product report.
-
-```sql
-SELECT
-    c.Category_Name,
-    p.Product_Name,
-    p.Price,
-    p.Stock
-FROM Category c
-JOIN Product p
-ON c.Category_ID = p.Category_ID
-ORDER BY c.Category_Name;
-```
-
-The report displays:
-
-* Category Name
-* Product Name
-* Price
-* Stock
-
-The products are arranged according to their category name.
-
-## 10. Final Product Records
-
-After the update and delete operations, 8 product records remained in the Product table.
-
-| Product_ID | Product_Name            | Category_ID | Price | Stock |
-| ---------: | ----------------------- | ----------: | ----: | ----: |
-|        101 | Laptop                  |           1 | 58000 |    10 |
-|        102 | Smartphone              |           1 | 25000 |    20 |
-|        103 | Headphones              |           1 |   899 |    60 |
-|        104 | Smart Watch             |           1 |  3499 |    15 |
-|        105 | T-Shirt                 |           2 |   799 |    50 |
-|        107 | Python Programming Book |           3 |   599 |    25 |
-|        109 | Mixer Grinder           |           4 |  3500 |    12 |
-|        110 | Electric Kettle         |           4 |  1800 |    18 |
-
-## 11. Result
-
-The Category and Product tables were successfully created using Oracle SQL.
-
-The primary key and foreign key relationships were successfully established. Category and product records were inserted successfully.
-
-Product records were successfully updated and deleted. A category-wise product report was also generated using the JOIN operation.
-
-## 12. Conclusion
-
-Thus, the Product and Category database was successfully designed and implemented using Oracle SQL.
-
-The project demonstrates basic DBMS operations including table creation, primary key, foreign key, insertion, updating, deletion, and category-wise reporting.
-
-## 13. Technologies Used
-
-* Oracle Database 21c Express Edition
-* SQL*Plus
-* SQL
-* Relational Database Management System
-
-## 14. Author
-
-**Humairul Jashira M**
-
-B.Sc. Computer Science with Artificial Intelligence
+##Author
+Humairul jashira M
+Bsc csc with Ai
