@@ -1,185 +1,251 @@
 # Amazon E-Commerce Database Management System
 
+## Author
+
+**Humairul Jashira M**
+
+---
+
 ## Project Overview
 
-The Amazon E-Commerce Database Management System is a relational database project developed using Oracle SQL and SQL*Plus.
+The Amazon E-Commerce Database Management System is a relational database project developed to manage the major operations of an e-commerce platform using DBMS concepts and Oracle SQL.
 
-This project focuses on managing product, category, seller, warehouse, and inventory information in a structured database. It establishes relationships between sellers, products, stock, and warehouses and provides inventory status reports.
+The project is developed progressively from requirement analysis and entity identification to database design, functional dependency analysis, anomaly analysis, table creation, data insertion, modification, and report generation.
 
-## DBMS Task
+---
 
-1. Create Seller and Inventory tables.
-2. Establish relationships between sellers, products, and stock.
-3. Maintain seller product information.
-4. Track available and unavailable products.
-5. Generate inventory status reports.
+# Week 1 – Requirement Analysis
 
-## Technologies Used
+## Objectives
 
-- Oracle Database
-- SQL
-- SQL*Plus
+The main objectives of the Amazon E-Commerce Database Management System are:
 
-## Database Tables
+- To design a relational database for an e-commerce system.
+- To manage customer information.
+- To manage seller information.
+- To manage products and categories.
+- To manage shopping carts.
+- To manage customer orders.
+- To manage payments and shipments.
+- To manage warehouses and inventory.
+- To manage reviews and wishlists.
+- To manage returns and coupons.
+- To maintain data consistency and integrity.
+- To generate useful reports.
 
-### Category
+## Stakeholders
 
-Stores product category information.
+The major stakeholders identified for the system are:
 
-Attributes:
-- Category_ID - Primary Key
-- Category_Name - Unique
-- Description
+- Customers
+- Sellers
+- Administrators
+- Delivery Partners
+- Warehouse Staff
 
-### Product
+## Functional Requirements
 
-Stores product details and category and seller relationships.
+The system should support:
 
-Attributes:
-- Product_ID - Primary Key
-- Product_Name
-- Category_ID - Foreign Key
-- Price
-- Stock
-- Seller_ID - Foreign Key
+- Customer management
+- Seller management
+- Product management
+- Category management
+- Brand management
+- Cart management
+- Order management
+- Payment management
+- Shipment management
+- Warehouse management
+- Inventory management
+- Review management
+- Wishlist management
+- Return management
+- Coupon management
+- Report generation
 
-### Seller
+## Non-Functional Requirements
 
-Stores seller and business information.
+The database system should provide:
 
-Attributes:
-- Seller_ID - Primary Key
-- Seller_Name
-- Business_Name
-- Email
-- Phone_Number
-- GST_Number
-- Address
-- Rating
+- Data integrity
+- Data consistency
+- Security
+- Reliability
+- Efficient data retrieval
+- Scalability
+- Reduced data redundancy
 
-### Warehouse
+---
 
-Stores warehouse information.
+# Week 2 – Entity Analysis and Relationships
 
-Attributes:
-- Warehouse_ID - Primary Key
-- Warehouse_Name
-- Location
-- Capacity
+## Entities Identified
 
-### Inventory
+The following entities were identified for the Amazon E-Commerce Database:
 
-Stores product stock information for warehouses.
+1. Customer
+2. Seller
+3. Product
+4. Category
+5. Brand
+6. Cart
+7. Cart_Item
+8. Order
+9. Order_Item
+10. Payment
+11. Shipment
+12. Delivery Partner
+13. Warehouse
+14. Inventory
+15. Review
+16. Wishlist
+17. Return
+18. Coupon
 
-Attributes:
-- Inventory_ID - Primary Key
-- Product_ID - Foreign Key
-- Warehouse_ID - Foreign Key
-- Available_Stock
-- Last_Updated
+## Primary Keys
 
-## Table Relationships
+Primary keys were identified for each major entity.
 
-- One Category can have many Products.
-- One Seller can sell many Products.
-- One Product can have inventory records.
-- One Warehouse can contain many inventory records.
+Examples:
 
-Relationship flow:
+```text
+Customer_ID
+Seller_ID
+Product_ID
+Category_ID
+Brand_ID
+Cart_ID
+Order_ID
+OrderItem_ID
+Payment_ID
+Shipment_ID
+Warehouse_ID
+Inventory_ID
+Review_ID
+Wishlist_ID
+Return_ID
+Coupon_ID
 
-Category → Product ← Seller
+# Week 3 – Functional Dependency and Anomaly Analysis
 
-Product → Inventory ← Warehouse
+## Functional Dependency
 
-## Operations Performed
+Functional dependencies were analyzed for the entities in the Amazon E-Commerce Database.
 
-### Table Creation
+Examples:
 
-- Created Category table
-- Created Product table
-- Created Seller table
-- Created Warehouse table
-- Created Inventory table
+- Customer_ID → Customer details
+- Seller_ID → Seller details
+- Product_ID → Product details
+- Category_ID → Category details
+- Order_ID → Order details
+- OrderItem_ID → Order_Item details
 
-### Data Insertion
+## Redundancy Analysis
 
-- Inserted category records
-- Inserted product records
-- Inserted seller records
-- Inserted warehouse records
-- Inserted inventory records
+The database design was analyzed to identify repeated or unnecessary data.
 
-### Seller Product Information
+Reducing redundancy helps to:
 
-A JOIN query was used to display:
+- Avoid duplicate data
+- Maintain data consistency
+- Reduce storage requirements
+- Make database updates easier
 
-- Seller ID
-- Seller Name
-- Product ID
-- Product Name
-- Available Stock
+## Database Anomalies
 
-### Inventory Status
+### Insertion Anomaly
 
-Available products and unavailable products were identified based on stock quantity.
+An insertion anomaly occurs when new information cannot be inserted without adding unrelated information.
 
-- Available Product: Available_Stock > 0
-- Unavailable Product: Available_Stock = 0
+### Update Anomaly
 
-## Inventory Reports
+An update anomaly occurs when the same information is stored in multiple places and must be updated repeatedly.
 
-The following reports were generated:
+### Deletion Anomaly
 
-### 1. Complete Inventory Report
+A deletion anomaly occurs when deleting one record unintentionally removes important information.
 
-Displays product, seller, stock, warehouse, and last updated information.
+## Normalization
 
-### 2. Available and Unavailable Product Count
+Normalization concepts were studied to organize the database and reduce redundancy.
 
-Displays the number of available and unavailable products.
+The following normal forms were considered:
 
-### 3. Total Stock by Seller
+- First Normal Form (1NF)
+- Second Normal Form (2NF)
+- Third Normal Form (3NF)
 
-Displays the total available stock for each seller.
 
-### 4. Products with Zero Stock
+# Week 4 – Orders and Order_Item
 
-Displays products whose available stock is zero.
+## Objectives
 
-## SQL Concepts Used
+1. Design Orders and Order_Item tables.
+2. Manage customer product orders.
+3. Store order date, quantity, and total amount.
+4. Perform order insertion and modification operations.
+5. Generate customer order history reports.
 
-- CREATE TABLE
-- INSERT
-- SELECT
-- ALTER TABLE
-- UPDATE
-- PRIMARY KEY
-- FOREIGN KEY
-- UNIQUE Constraint
-- JOIN
-- WHERE
-- GROUP BY
-- COUNT()
-- SUM()
-- UNION ALL
-- CASE
+## Orders Table
 
-## Purpose of the Project
+The `Orders` table stores customer order information.
 
-The project demonstrates how a relational database can be used to manage seller, product, warehouse, and inventory information efficiently. It also demonstrates database relationships, SQL operations, and inventory reporting using Oracle SQL*Plus.
+### Table Structure
 
-## Conclusion
+| Column | Description |
+|---|---|
+| Order_ID | Primary Key |
+| Customer_ID | Foreign Key |
+| Order_Date | Date of order |
+| Delivery_Date | Delivery date |
+| Order_Status | Current order status |
+| Total_Amount | Total order amount |
 
-The Amazon E-Commerce Database Management System provides a structured way to manage seller, product, category, warehouse, and inventory data. The project establishes relationships between related tables and generates useful inventory status reports for better data management and retrieval.
+### Orders Records
 
-## Tools
+| Order_ID | Customer_ID | Order_Date | Delivery_Date | Order_Status | Total_Amount |
+|---:|---:|---|---|---|---:|
+| 201 | 101 | 10-09-2026 | 13-09-2026 | Delivered | 899 |
+| 202 | 102 | 11-09-2026 | 15-09-2026 | Shipped | 1299 |
+| 203 | 103 | 12-09-2026 | 16-09-2026 | Delivered | 599 |
+| 204 | 104 | 13-09-2026 | 17-09-2026 | Shipped | 1499 |
+| 205 | 105 | 14-09-2026 | 18-09-2026 | Delivered | 799 |
+| 206 | 106 | 15-09-2026 | 19-09-2026 | Shipped | 1099 |
+| 207 | 107 | 16-09-2026 | 20-09-2026 | Pending | 699 |
+| 208 | 101 | 20-09-2026 | 23-09-2026 | Pending | 999 |
 
-Oracle SQL*Plus
+## Order_Item Table
 
-## Project Type
+The `Order_Item` table stores the products included in each order.
 
-DBMS Academic Project
+### Table Structure
 
-##Author
-Humairul jashira M
-Bsc csc with Ai
+| Column | Description |
+|---|---|
+| OrderItem_ID | Primary Key |
+| Order_ID | Foreign Key |
+| Product_ID | Foreign Key |
+| Quantity | Quantity ordered |
+| Unit_Price | Price per unit |
+
+### Order_Item Records
+
+| OrderItem_ID | Order_ID | Product_ID | Quantity | Unit_Price |
+|---:|---:|---:|---:|---:|
+| 301 | 201 | 101 | 1 | 899 |
+| 302 | 201 | 103 | 1 | 1999 |
+| 303 | 202 | 102 | 1 | 1299 |
+| 304 | 203 | 104 | 1 | 599 |
+| 305 | 204 | 105 | 1 | 799 |
+| 306 | 205 | 106 | 1 | 799 |
+| 307 | 206 | 107 | 1 | 1099 |
+| 308 | 207 | 108 | 1 | 699 |
+
+## Foreign Key Relationships
+
+```text
+Customer → Orders
+Orders → Order_Item
+Product → Order_Item
