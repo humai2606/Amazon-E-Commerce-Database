@@ -285,10 +285,7 @@ Python Programming Book
 
 
 10 rows selected.
-
-SQL> SELECT DISTINCT Category_ID
-  2  FROM Product;S
-  3
+       
 SQL> SELECT DISTINCT Category_ID
   2  FROM Product;
 
@@ -1279,9 +1276,7 @@ PRODUCT_NAME
 Data Science Book
        699
 
-
-SQL> 4.3 NOT condition
-SP2-0734: unknown command beginning "4.3 NOT co..." - rest of line ignored.
+       
 SQL> SELECT Product_ID, Product_Name, Category_ID
   2  FROM Product
   3  WHERE NOT Category_ID = 1;
@@ -1569,4 +1564,3 @@ Kumar                                                                  0
 
 7 rows selected.
 
-SQL>
