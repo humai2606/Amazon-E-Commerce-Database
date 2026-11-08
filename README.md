@@ -25,29 +25,6 @@ The project is designed to manage and maintain different activities of an e-comm
 - Oracle SQL
 - SQL*Plus
 
-## Main Entities
-
-The database includes the following entities:
-
-1. Customer
-2. Seller
-3. Product
-4. Category
-5. Brand
-6. Cart
-7. Cart Item
-8. Orders
-9. Order Item
-10. Payment
-11. Shipment
-12. Delivery Partner
-13. Warehouse
-14. Inventory
-15. Review
-16. Wishlist
-17. Return
-18. Coupon
-
 ## Weekly Work Progress
 
 ### Week 1 – Requirement Analysis
