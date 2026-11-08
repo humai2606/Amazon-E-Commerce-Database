@@ -2,11 +2,9 @@
 
 ## Project Overview
 
-The Amazon E-Commerce Database is a relational database management system developed using Oracle Database and SQL*Plus.
+The **Amazon E-Commerce Database** is a relational database management system developed using Oracle Database and SQL*Plus.
 
-The project is designed to manage different activities of an e-commerce platform such as customers, sellers, products, orders, payments, inventory, delivery, reviews, ratings, wishlist, returns, and coupons.
-
----
+The project is designed to manage and maintain different activities of an e-commerce platform, including customers, sellers, products, categories, orders, payments, inventory, delivery, reviews, ratings, wishlists, returns, and coupons.
 
 ## Objectives
 
@@ -16,88 +14,59 @@ The project is designed to manage different activities of an e-commerce platform
 - To maintain data consistency.
 - To manage customer and product information.
 - To manage orders and payments.
-- To manage inventory and delivery details.
+- To maintain inventory and delivery details.
 - To store product reviews and ratings.
 - To generate useful business reports.
 - To understand practical DBMS concepts.
 
----
+## Technologies Used
 
-# Weekly Work
+- Oracle Database
+- Oracle SQL
+- SQL*Plus
 
-## Week 1 – Requirement Analysis
+## Main Entities
 
-The project started with requirement analysis of the Amazon E-Commerce system.
+The database includes the following entities:
 
-The requirements covered:
+1. Customer
+2. Seller
+3. Product
+4. Category
+5. Brand
+6. Cart
+7. Cart Item
+8. Orders
+9. Order Item
+10. Payment
+11. Shipment
+12. Delivery Partner
+13. Warehouse
+14. Inventory
+15. Review
+16. Wishlist
+17. Return
+18. Coupon
 
-- Customer management
-- Seller management
-- Product management
-- Order management
-- Payment management
-- Inventory management
-- Shipping and delivery
-- Reviews and ratings
-- Returns and refunds
-- Wishlist and coupons
-- Business reporting
+## Weekly Work Progress
 
-The main stakeholders identified were customers, sellers, administrators, warehouse staff, delivery partners, finance teams, and management.
+### Week 1 – Requirement Analysis
 
----
+Identified the requirements of the Amazon E-Commerce Database.
 
-## Week 2 – Entity Analysis
+The requirements covered customer management, seller management, product management, order management, payment management, inventory, shipping, delivery, reviews, ratings, returns, refunds, wishlists, and coupons.
 
-The entities required for the Amazon E-Commerce Database were identified along with their attributes and keys.
+### Week 2 – Entity Analysis
 
-### Main Entities
+Identified the main entities, attributes, primary keys, foreign keys, unique keys, and constraints required for the database.
 
-- Customer
-- Seller
-- Product
-- Category
-- Brand
-- Cart
-- Cart Item
-- Orders
-- Order Item
-- Payment
-- Shipment
-- Delivery Partner
-- Warehouse
-- Inventory
-- Review
-- Wishlist
-- Return
-- Coupon
+### Week 3 – Functional Dependency and Anomaly Analysis
 
-Primary keys, foreign keys, unique keys, and constraints were identified for the entities.
+Analysed functional dependencies, data redundancy, insertion anomalies, update anomalies, deletion anomalies, and normalization.
 
----
+### Week 4 – Database Design
 
-## Week 3 – Functional Dependency and Anomaly Analysis
-
-Functional dependencies were identified for the database tables.
-
-The database was analysed for:
-
-- Functional dependencies
-- Data redundancy
-- Insertion anomalies
-- Update anomalies
-- Deletion anomalies
-- Normalization
-
-The analysis helped to design a more organized and consistent database.
-
----
-
-## Week 4 – Database Design
-
-The database structure and relationships between the entities were designed.
-
-The relationships covered:
+Designed the database structure and relationships between entities, including:
 
 - Customer and Orders
 - Orders and Order Items
@@ -110,54 +79,20 @@ The relationships covered:
 - Customer and Wishlist
 - Orders and Returns
 
-This helped create a proper relational database structure.
+### Week 5 – Database Implementation
 
----
+Created database tables in Oracle Database with appropriate primary keys, foreign keys, unique constraints, NOT NULL constraints, and CHECK constraints. Sample data was also inserted.
 
-## Week 5 – Database Implementation
+### Week 6 – Data Management
 
-The identified entities were implemented as database tables in Oracle Database.
+Added sample data for customers, products, categories, orders, order items, payments, inventory, and other related records.
 
-The tables were created with appropriate:
+### Week 7 – SQL Query Implementation
 
-- Primary keys
-- Foreign keys
-- Unique constraints
-- NOT NULL constraints
-- CHECK constraints
-
-Sample data was also added to the database.
-
----
-
-## Week 6 – Data Management
-
-The database was populated with sample Amazon e-commerce data.
-
-The implemented data included:
-
-- Customer details
-- Product details
-- Category details
-- Order details
-- Order item details
-- Payment details
-- Inventory details
-- Other related records
-
-The database was tested using different data management operations.
-
----
-
-## Week 7 – SQL Query Implementation
-
-Different SQL operations were performed to retrieve and analyse information from the database.
-
-The work included:
+Implemented SQL queries for:
 
 - Product searching
-- Product filtering
-- Product sorting
+- Product filtering and sorting
 - Customer information retrieval
 - Order information retrieval
 - Product availability checking
@@ -165,84 +100,27 @@ The work included:
 - Purchase amount analysis
 - Business report generation
 
----
+### Week 8 – Payment Details Management
 
-## Week 8 – Payment Details Management
+Implemented payment management to store and analyse payment information.
 
-Payment management was implemented as part of the Amazon database.
+The module includes payment methods, payment status, payment dates, payment amounts, successful and failed payments, payment status modification, and payment transaction reports.
 
-The payment module includes:
+### Week 9 – Review and Rating Management
 
-- Payment information
-- Payment methods
-- Payment status
-- Payment dates
-- Payment amounts
-- Successful payments
-- Failed payments
-- Payment status modification
-- Payment method analysis
-- Payment transaction reports
+Implemented review and rating management.
 
-Payment information is connected with customer orders.
+The module supports customer reviews, product ratings, retrieving product reviews, calculating average ratings, identifying highly rated products, and generating rating reports.
 
----
+### Week 10 – Database Relationship Analysis
 
-## Week 9 – Review and Rating Management
+Analysed relationships between multiple tables using SQL JOIN operations.
 
-The Review and Rating management module was implemented.
+The work included customer-order relationships, order-payment relationships, product-order relationships, customer purchase history, and multi-table information retrieval.
 
-### Review Management
+### Week 11 – Business Reports and Data Analysis
 
-Customer reviews were stored with:
-
-- Review ID
-- Customer ID
-- Product ID
-- Review text
-- Review date
-
-### Rating Management
-
-Product ratings were stored with:
-
-- Rating ID
-- Customer ID
-- Product ID
-- Rating
-- Rating date
-
-The module also includes:
-
-- Retrieving product reviews
-- Calculating average ratings
-- Identifying highly rated products
-- Generating product rating reports
-
----
-
-## Week 10 – Database Relationship Analysis
-
-Relationships between multiple tables were analysed using different database relationships.
-
-The work included:
-
-- Customer and order relationship
-- Order and payment relationship
-- Product and order relationship
-- Customer purchase history
-- Multi-table information retrieval
-- Business report generation
-
-This helped understand how information is connected across different tables.
-
----
-
-## Week 11 – Business Reports and Data Analysis
-
-Different reports were generated from the database to analyse e-commerce activities.
-
-The reports included:
+Generated reports to analyse e-commerce activities, including:
 
 - Product price report
 - Customer order report
@@ -253,28 +131,62 @@ The reports included:
 - Product rating report
 - Highly rated product report
 
-These reports help in understanding customer purchases, products, payments, and ratings.
+### Week 12 – Final Database Integration
 
----
+Integrated the major database modules into the final Amazon E-Commerce Database.
 
-## Week 12 – Final Database Integration
+## Key Features
 
-All the major modules were combined into the final Amazon E-Commerce Database.
+- Customer information management
+- Product and category management
+- Order management
+- Payment details management
+- Inventory and delivery management
+- Product reviews and ratings
+- Wishlist and return management
+- SQL-based data retrieval
+- Database relationship analysis
+- Business report generation
 
-# Tools Used
+## Project Files
 
-- Oracle Database
-- Oracle SQL
-- SQL*Plus
+The repository includes SQL scripts and documentation related to:
 
----
+- Entity Analysis
+- Entity Relationship Diagrams
+- Functional Dependencies, Redundancy, and Anomalies
+- Customer CRUD Operations
+- Database Relationship Analysis Using JOINS
+- Product Review and Rating Management
+- Payment Details Management
 
-# Conclusion
+## Learning Outcomes
+
+Through this project, practical knowledge was gained in:
+
+- Relational database design
+- Entity and relationship analysis
+- Functional dependencies
+- Database normalization
+- SQL commands and operations
+- SQL JOIN operations
+- Data management
+- Business reporting and data analysis
+
+## Conclusion
 
 The Amazon E-Commerce Database project was developed progressively from requirement analysis to final database integration.
 
-The project covers customer, seller, product, order, payment, inventory, delivery, review, rating, wishlist, return, and coupon management.
+It covers important e-commerce operations such as customer, seller, product, order, payment, inventory, delivery, review, rating, wishlist, return, and coupon management.
 
-Through this project, practical knowledge of database design, normalization, relationships, SQL operations, data analysis, and business reporting was gained.
+The project provided practical experience in Oracle Database, SQL, database design, normalization, relationships, data management, and business reporting.
 
-The completed system provides a structured and organized approach for managing Amazon e-commerce data.
+---
+
+## Author
+
+**Humairul Jashira M.**
+
+B.Sc. Computer Science with Artificial Intelligence
+
+**GitHub:** [@humai2606](https://github.com/humai2606)
