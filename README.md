@@ -17,6 +17,7 @@ The project is designed to manage and maintain different activities of an e-comm
 - To maintain inventory and delivery details.
 - To store product reviews and ratings.
 - To generate useful business reports.
+- To implement advanced SQL queries.
 - To understand practical DBMS concepts.
 
 ## Technologies Used
@@ -112,43 +113,23 @@ Generated reports to analyse e-commerce activities, including:
 
 Integrated the major database modules into the final Amazon E-Commerce Database.
 
-## Key Features
+### Week 13 – Advanced SQL Query Implementation
 
-- Customer information management
-- Product and category management
-- Order management
-- Payment details management
-- Inventory and delivery management
-- Product reviews and ratings
-- Wishlist and return management
-- SQL-based data retrieval
-- Database relationship analysis
-- Business report generation
+Implemented advanced SQL queries using the existing Amazon E-Commerce Database.
 
-## Project Files
+The following queries were executed:
 
-The repository includes SQL scripts and documentation related to:
+1. **Find Products Above Average Price** – Used a subquery and AVG() function to identify products priced above the average price.
 
-- Entity Analysis
-- Entity Relationship Diagrams
-- Functional Dependencies, Redundancy, and Anomalies
-- Customer CRUD Operations
-- Database Relationship Analysis Using JOINS
-- Product Review and Rating Management
-- Payment Details Management
+2. **Identify Customers with Maximum Purchases** – Used nested queries, GROUP BY, HAVING, SUM(), and MAX() to find customers with the highest total purchases.
 
-## Learning Outcomes
+3. **Find Best-Selling Products** – Used JOIN, GROUP BY, SUM(), and ORDER BY to identify products based on total quantity sold.
 
-Through this project, practical knowledge was gained in:
+4. **Find Customers with Successful Payments** – Used JOIN, EXISTS, and subqueries to identify customers with successful payment records.
 
-- Relational database design
-- Entity and relationship analysis
-- Functional dependencies
-- Database normalization
-- SQL commands and operations
-- SQL JOIN operations
-- Data management
-- Business reporting and data analysis
+5. **Advanced Customer Purchase Report** – Used JOIN, COUNT(), SUM(), AVG(), GROUP BY, and ORDER BY to generate customer purchase reports.
+
+6. **Find Products That Have Never Been Ordered** – Used NOT EXISTS and a correlated subquery to identify products that have never been included in any order.
 
 ## Conclusion
 
@@ -156,7 +137,9 @@ The Amazon E-Commerce Database project was developed progressively from requirem
 
 It covers important e-commerce operations such as customer, seller, product, order, payment, inventory, delivery, review, rating, wishlist, return, and coupon management.
 
-The project provided practical experience in Oracle Database, SQL, database design, normalization, relationships, data management, and business reporting.
+Advanced SQL concepts, including subqueries, nested queries, JOIN operations, EXISTS, NOT EXISTS, and aggregate functions, were also implemented to analyse customer purchases, product sales, and payment details.
+
+The project provided practical experience in Oracle Database, SQL, database design, normalization, relationships, data management, advanced query implementation, and business reporting.
 
 ---
 
